@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>M Akshay Sharma — Data Analytics & Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of M Akshay Sharma — Computer Science undergraduate at VIT-AP specializing in Data Analytics, SQL engineering, Python, and Full-Stack web development.">
+  <meta name="theme-color" content="#06090E">
+  <meta property="og:title" content="M Akshay Sharma — Data Analytics & Full-Stack Developer">
+  <meta property="og:description" content="Turning complex data streams into decisive insights and building scalable full-stack web platforms.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306090E'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%239B111E'/%3E%3Cline x1='18' y1='32' x2='46' y2='32' stroke='%23EDEBE6' stroke-width='2.5' stroke-dasharray='3 2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/src/style.css">
+  <script>
+    // Decide before first paint whether the intro plays, so the site never flashes underneath it.
+    (function () {
+      var skip = false;
+      try { skip = sessionStorage.getItem('cricketIntroSeen') === '1'; } catch (e) {}
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) skip = true;
+      if (/[?&](intro|slowmo|at)(=|&|$)/.test(location.search)) skip = false;
+      if (!skip) document.documentElement.classList.add('intro-on');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Intro: 3D cricket match delivery, pitch floodlights, Zing bails flash -->
+  <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Match opening animation">
+    <canvas class="intro-canvas" id="introCanvas"></canvas>
+    <div class="intro-shade" aria-hidden="true"></div>
+    <div class="intro-hud">
+      <div class="intro-top">
+        <span class="wordmark">M Akshay Sharma · 2026</span>
+        <button class="skip" id="skipIntro" type="button">Skip Delivery</button>
+      </div>
+      <div class="match-prompt">
+        <span class="stadium-badge">Night Session · Floodlit Match</span>
+        <div class="lights" id="lights" aria-label="Over balls 1 to 6"></div>
+        <p class="umpire-call">Umpire calls: <strong>PLAY</strong></p>
+      </div>
+      <div class="intro-bottom">
+        <div class="load" id="load">
+          <span class="load-line"><span id="loadFill"></span></span>
+          <span class="load-pct" id="loadPct">0</span>
+        </div>
+        <span class="intro-caption">Cricket Telemetry · Data &amp; Web</span>
+      </div>
+    </div>
+    <p class="sr-only" id="introStatus" role="status">Loading match session</p>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="wordmark" href="#top">Akshay Sharma<span class="dot-green">.</span></a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#work">Innings (Work)</a>
+        <a href="#journey">Wagon Wheel</a>
+        <a href="#capabilities">Disciplines</a>
+        <a href="#contact">The Pavilion</a>
+      </nav>
+      <a class="nav-cv" href="/M_Akshay_Sharma_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-meta">
+          <span>Data Analytics Engineer · Full-Stack Developer</span>
+          <span class="now" id="now" hidden></span>
+        </div>
+        <p class="hero-first">M Akshay</p>
+        <h1 class="hero-name">Sharma<span class="dot-green">.</span></h1>
+        <div class="hero-foot">
+          <p class="hero-statement">I turn high-velocity data into <em>decisive insights</em>, and engineer full-stack systems that perform under match pressure.</p>
+          <div class="hero-side">
+            <p>Specializing in Data Analytics, complex SQL engineering, and Python-driven intelligence, backed by full-stack MERN &amp; AWS cloud architectures. Computer Science (Data Analytics) undergraduate at VIT-AP University and AWS Academy Graduate.</p>
+            <div class="hero-links">
+              <a class="link-arrow" href="#work">Selected Innings</a>
+              <a class="link-arrow" href="#journey">Wagon Wheel</a>
+              <a class="link-arrow" href="#contact">Enter Pavilion</a>
+              <a class="link-arrow" href="/M_Akshay_Sharma_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <dl class="facts">
+          <div><dt>Discipline</dt><dd>Data Analytics · Full-Stack</dd></div>
+          <div><dt>Institution</dt><dd>B.Tech CSE (Data Analytics), VIT-AP</dd></div>
+          <div><dt>Scorecard</dt><dd>Cumulative CGPA: 8.32 / 10</dd></div>
+          <div><dt>Telemetry</dt><dd>8,000+ Events Analyzed</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Match-Winning Innings</p>
+          <h2 class="section-title">Things I’ve built, <em>analyzed &amp; shipped.</em></h2>
+        </header>
+        <div class="showcase">
+          <div class="featured" id="featured"></div>
+          <div class="screen-col" aria-hidden="true">
+            <figure class="screen" id="screen">
+              <div class="screen-frame" id="screenFrame"><i class="scanline"></i></div>
+              <figcaption><span id="screenIdx">01 / 03</span><span id="screenUrl"></span></figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="archive">
+          <p class="eyebrow">Career Deliveries &amp; Technical Builds</p>
+          <div class="archive-list" id="archive"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey Section: Cricket Wagon Wheel -->
+    <section class="section" id="journey">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Career Wagon Wheel</p>
+          <h2 class="section-title">Every innings, <em>mapped shot by shot.</em></h2>
+          <p class="section-note">Just like an elite batsman's wagon wheel under the stadium lights: each milestone represents a calculated scoring shot across the boundary.</p>
+        </header>
+        <div class="journey">
+          <div class="journey-map">
+            <figure class="map">
+              <svg viewBox="0 0 1000 600" role="img" aria-label="Cricket Ground and Wagon Wheel showing career milestones">
+                <defs>
+                  <radialGradient id="turfGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#00E575" stop-opacity="0.16"/>
+                    <stop offset="60%" stop-color="#00E575" stop-opacity="0.04"/>
+                    <stop offset="100%" stop-color="#00E575" stop-opacity="0"/>
+                  </radialGradient>
+                  <filter id="ballGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <!-- Ground Outfield -->
+                <ellipse cx="500" cy="300" rx="460" ry="260" fill="url(#turfGlow)" stroke="rgba(226,232,240,0.12)" stroke-width="1.5" stroke-dasharray="6 4"/>
+                <!-- 30-Yard Circle -->
+                <ellipse cx="500" cy="300" rx="240" ry="135" fill="none" stroke="rgba(0,229,117,0.25)" stroke-width="1.5" stroke-dasharray="4 6"/>
+                <!-- 22-Yard Pitch -->
+                <rect x="478" y="260" width="44" height="80" rx="3" fill="#8C744F" stroke="#EDF2F7" stroke-width="1" opacity="0.85"/>
+                <line x1="478" y1="275" x2="522" y2="275" stroke="#FFFFFF" stroke-width="1.5"/>
+                <line x1="478" y1="325" x2="522" y2="325" stroke="#FFFFFF" stroke-width="1.5"/>
+                <!-- Wagon Wheel Shot Rays -->
+                <g id="wagonRays" stroke="rgba(226,232,240,0.12)" stroke-width="1"></g>
+                <!-- Active Shot Tracer -->
+                <line id="activeTracer" x1="500" y1="300" x2="500" y2="300" stroke="#00E575" stroke-width="3" stroke-linecap="round"/>
+                <!-- Milestones Target Pins -->
+                <g id="corners"></g>
+                <!-- Animated Cricket Ball Marker -->
+                <g id="mapBall">
+                  <circle class="ball-halo" r="16" fill="rgba(255,42,85,0.3)" filter="url(#ballGlow)"/>
+                  <circle class="ball-dot" r="7" fill="#FF2A55"/>
+                  <circle r="2.5" fill="#FFFFFF"/>
+                </g>
+              </svg>
+              <figcaption>
+                <span>Stadium Wagon Wheel</span>
+                <span id="mapNow">Strike Stance</span>
+              </figcaption>
+            </figure>
+          </div>
+          <ol class="milestones" id="milestones"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities Section: 3D Pitch Stage -->
+    <section class="section xr" id="capabilities">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Technical Disciplines</p>
+          <h2 class="section-title">The pitch craft, <em>and technical mastery.</em></h2>
+          <p class="section-note">Broken down the way a performance analyst evaluates cricket: four core disciplines executing under pressure.</p>
+        </header>
+      </div>
+      <div class="xr-track" id="xrTrack">
+        <div class="xr-stage" id="xrStage">
+          <canvas class="xr-canvas" id="xrCanvas" aria-hidden="true"></canvas>
+          <svg class="xr-lines" id="xrLines" aria-hidden="true">
+            <polyline id="xrLeader"/>
+            <circle id="xrPin" r="4"/>
+            <circle id="xrPinRing" r="12"/>
+          </svg>
+          <div class="wrap xr-ui">
+            <ol class="xr-cards" id="caps"></ol>
+            <ol class="xr-steps" id="xrSteps" aria-hidden="true"></ol>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="creds">
+          <div>
+            <span class="cred-k">Accreditations</span>
+            <span class="cred-v">AWS Academy Graduate (Cloud Architecting &amp; Cloud Foundations) · MERN Full Stack</span>
+          </div>
+          <div>
+            <span class="cred-k">Academics</span>
+            <span class="cred-v">B.Tech Computer Science (Data Analytics), VIT-AP University · CGPA: 8.32 / 10</span>
+          </div>
+          <div>
+            <span class="cred-k">Off the Pitch</span>
+            <span class="cred-v">Cricket telemetry, IPL tactical data strategies, and sports statistical modeling.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section: The Pavilion -->
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <p class="eyebrow">The Pavilion</p>
+        <h2 class="contact-title">Let’s build something <em>game-changing.</em></h2>
+        <div class="contact-mail">
+          <a class="mail" id="email" href="mailto:akshaysharma200508@gmail.com">akshaysharma200508@gmail.com</a>
+          <button class="copy" id="copyEmail" type="button">Copy</button>
+        </div>
+        <p class="contact-time">Amaravati, Andhra Pradesh, India · <span id="clock">IST</span></p>
+        <div class="contact-links">
+          <a class="link-arrow" href="https://www.linkedin.com/in/akshaysharma" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link-arrow" href="https://github.com/akshaysharma2005" target="_blank" rel="noopener">GitHub</a>
+          <a class="link-arrow" href="tel:+916304698235">+91 6304698235</a>
+          <a class="link-arrow" href="/M_Akshay_Sharma_Resume.pdf" download="M_Akshay_Sharma_Resume.pdf">Download Resume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <span>© 2026 M Akshay Sharma · Data Analytics &amp; Full-Stack</span>
+      <button class="replay" id="replayIntro" type="button">Replay delivery</button>
+      <span class="credit">Built with Vite &amp; Three.js · Floodlit Cricket Edition</span>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
